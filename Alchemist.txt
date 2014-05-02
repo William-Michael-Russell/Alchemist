@@ -3,9 +3,9 @@
 ## Author: Helge Milde
 ## APIVersion: 100003
 
-## Unicorn dependency
-lib/Unicorn/Unicorn.lua
-lib/Unicorn/Unicorn/List.lua
+## Sliders dependency
+lib/Sliders/Sliders.lua
+lib/Sliders/Sliders/List.lua
 
 ## Alchemist
 Alchemist.lua

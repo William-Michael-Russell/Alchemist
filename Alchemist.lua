@@ -3,19 +3,21 @@ Alchemist = {
     listview = nil,
 }
 
-function Alchemist.initialize()
-    Alchemist.listview = Unicorn.ListView.new(AlchemistControl, {
+function Alchemist.initialize()  -- Create a listview from the Sliders Library
+    -- TODO Add setting to enable extra lists vertically
+    Alchemist.listview = Sliders.ListView.new(AlchemistControl, {
         title = "|cccccccAlchemist |cffff99" .. Alchemist.version,
         width = 350,
         left = 970,
         top = 60,
     })
 
+    -- Initalize the listview and set it hidden until the user opens the alchemy table
     Alchemist.listview.control:SetHidden(true)
     
     EVENT_MANAGER:RegisterForEvent("Alchemist", EVENT_CRAFTING_STATION_INTERACT, Alchemist.on_start_crafting)
     EVENT_MANAGER:RegisterForEvent("Alchemist", EVENT_END_CRAFTING_STATION_INTERACT, Alchemist.on_end_crafting)
-
+    -- TODO sometimes the users inventory does not update. need an event or update to recalculate the inventory
     EVENT_MANAGER:RegisterForEvent("Alchemist", EVENT_CRAFT_STARTED, Alchemist.on_craft_started)
     EVENT_MANAGER:RegisterForEvent("Alchemist", EVENT_CRAFT_COMPLETED, Alchemist.on_craft_completed)
 end
